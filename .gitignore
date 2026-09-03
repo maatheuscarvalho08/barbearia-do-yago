@@ -1,0 +1,16 @@
+# Arquivos-fonte (não usados pelo site, só referência local)
+Imagens loja alcantara/
+Imagens loja de marica/
+Logo e indentidade visual/
+O yago/
+Profissionais Alcantara/
+Profissionais Maricá/
+Referencias/
+
+# Tooling local
+.claude/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

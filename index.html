@@ -5,9 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Barbearia do Yago — Sua barbearia por assinatura em São Gonçalo e Maricá</title>
 <meta name="description" content="Corte de precisão, atendimento de verdade e assinatura que cabe na rotina. Duas unidades no RJ: Alcântara (São Gonçalo) e Maricá. Agende em segundos." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://barbeariadoyago.com.br/" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+<link rel="apple-touch-icon" href="/favicon-180.png" sizes="180x180" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta property="og:title" content="Barbearia do Yago" />
 <meta property="og:description" content="Sua barbearia por assinatura. Duas unidades no RJ, o mesmo padrão de corte." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://barbeariadoyago.com.br/" />
+<meta property="og:image" content="https://barbeariadoyago.com.br/assets/hero.png" />
+<meta property="og:image:alt" content="Barbearia do Yago, sua barbearia por assinatura." />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Barbearia do Yago" />
+<meta name="twitter:description" content="Sua barbearia por assinatura em Alcântara e Maricá." />
+<meta name="twitter:image" content="https://barbeariadoyago.com.br/assets/hero.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Barbershop",
+      "@id": "https://barbeariadoyago.com.br/#alcantara",
+      "name": "Barbearia do Yago - Alcântara",
+      "url": "https://barbeariadoyago.com.br/#unidades",
+      "image": "https://barbeariadoyago.com.br/assets/fachada-alcantara.png",
+      "telephone": "+5521972599512",
+      "priceRange": "$$",
+      "sameAs": ["https://www.instagram.com/barbeariadoyago/"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Dr. Alfredo Backer, 536 - Lj G bl4 - Alcântara",
+        "addressLocality": "São Gonçalo",
+        "addressRegion": "RJ",
+        "postalCode": "24710-120",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    },
+    {
+      "@type": "Barbershop",
+      "@id": "https://barbeariadoyago.com.br/#marica",
+      "name": "Barbearia do Yago - Maricá",
+      "url": "https://barbeariadoyago.com.br/#unidades",
+      "image": "https://barbeariadoyago.com.br/assets/fachada-marica.webp",
+      "telephone": "+5521983652302",
+      "priceRange": "$$",
+      "sameAs": ["https://www.instagram.com/barbeariadoyago/"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Ver. Luiz Antonio da Cunha, 35 - Shopping Boulevard - Centro",
+        "addressLocality": "Maricá",
+        "addressRegion": "RJ",
+        "postalCode": "24900-000",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -267,6 +352,65 @@
 
   /* ---------- planos ---------- */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .plan-clubs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0 0 2rem;
+  }
+  .plan-units {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: -1.4rem 0 1rem;
+  }
+  .plan-unit {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.72rem 1.05rem;
+    border: 1px solid rgba(13,26,43,0.24);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .plan-unit[aria-selected="true"] {
+    background: var(--blood);
+    border-color: var(--blood);
+    color: #fff;
+  }
+  .plan-club {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.72rem 1.05rem;
+    border: 1px solid rgba(13,26,43,0.24);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .plan-club[aria-selected="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bone);
+  }
+  .plan__details {
+    min-height: 5.8rem;
+    list-style: none;
+    display: grid;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+  }
+  .plan__details li { padding-left: 1.35rem; position: relative; color: #4a5461; }
+  .plan__details li::before { content: "—"; position: absolute; left: 0; color: var(--blood-deep); }
+  .plan--feature .plan__details li { color: #cfc7ba; }
+  .plan--feature .plan__details li::before { color: var(--blood); }
   .plan {
     border: 1px solid rgba(13,26,43,0.16);
     border-radius: 2px;
@@ -480,6 +624,10 @@
 
     /* planos */
     .plan { padding: 1.5rem 1.3rem; }
+    .plan-units { margin-top: -0.8rem; }
+    .plan-unit { flex: 1 1 calc(50% - 0.55rem); text-align: center; }
+    .plan-clubs { margin-top: 0; }
+    .plan-club { flex: 1 1 calc(50% - 0.55rem); text-align: center; padding-inline: 0.6rem; }
     .avulso__list { grid-template-columns: 1fr; }
 
     /* equipe */
@@ -618,7 +766,7 @@
           <div class="unit__body">
             <h3>Alcântara</h3>
             <p class="unit__row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>R. Dr. Alfredo Backer, 536 - Lj G bl4 - Alcântara, São Gonçalo - RJ, 24710-120</span></p>
-            <p class="unit__row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1.2.4 2.4.7 3.5a2 2 0 0 1-.5 2.1L8 10.5a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1.1.3 2.3.6 3.5.7A2 2 0 0 1 22 16.9Z"/></svg><span>(21) 4119-4786</span></p>
+            <p class="unit__row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1.2.4 2.4.7 3.5a2 2 0 0 1-.5 2.1L8 10.5a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1.1.3 2.3.6 3.5.7A2 2 0 0 1 22 16.9Z"/></svg><span>(21) 97259-9512</span></p>
             <p class="unit__row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Seg a Sex · 9h às 20h &nbsp;·&nbsp; Sáb · 9h às 18h</span></p>
             <div class="unit__actions">
               <a class="btn btn--primary" data-action="book-alcantara" href="#">Agendar</a>
@@ -647,57 +795,12 @@
     <div class="wrap">
       <div class="section__head reveal">
         <span class="eyebrow">Clube do Yago</span>
-        <h2>Assine e esqueça a fila do caixa.</h2>
-        <p class="section__lead" style="color:#4a5461;">Um valor fixo por mês, o corte sempre em dia. Cancele quando quiser.</p>
+        <h2 id="plansTitle">Planos de Maricá.</h2>
+        <p class="section__lead" style="color:#4a5461;">Escolha a unidade, encontre o clube certo e agende direto pelo app.</p>
       </div>
-      <div class="plans">
-        <article class="plan reveal">
-          <span class="plan__tag">Essencial</span>
-          <span class="plan__name">Aparo</span>
-          <span class="plan__price">R$ 59,90<small> /mês</small></span>
-          <ul class="plan__list">
-            <li>2 cortes por mês</li>
-            <li>Acabamento entre cortes</li>
-            <li>Agendamento prioritário no app</li>
-          </ul>
-          <a class="btn btn--ghost" data-action="book" href="#">Assinar</a>
-        </article>
-        <article class="plan plan--feature reveal">
-          <span class="plan__tag">Mais assinado</span>
-          <span class="plan__name">Clássico</span>
-          <span class="plan__price">R$ 99,90<small> /mês</small></span>
-          <ul class="plan__list">
-            <li>4 cortes por mês</li>
-            <li>Acabamento e pézinho ilimitados</li>
-            <li>10% off em produtos</li>
-            <li>Vale nas duas unidades</li>
-          </ul>
-          <a class="btn btn--primary" data-action="book" href="#">Assinar</a>
-        </article>
-        <article class="plan reveal">
-          <span class="plan__tag">Completo</span>
-          <span class="plan__name">Black</span>
-          <span class="plan__price">R$ 149,90<small> /mês</small></span>
-          <ul class="plan__list">
-            <li>Cortes ilimitados</li>
-            <li>Barba a cada visita</li>
-            <li>1 alisamento ou hidratação no mês</li>
-            <li>15% off em produtos</li>
-          </ul>
-          <a class="btn btn--ghost" data-action="book" href="#">Assinar</a>
-        </article>
-      </div>
-
-      <div class="avulso reveal">
-        <h3>Preços avulsos</h3>
-        <ul class="avulso__list">
-          <li><b>Acabamento</b><span>R$ 15,00</span></li>
-          <li><b>Acabamento (clube)</b><span>R$ 10,00</span></li>
-          <li><b>Barba</b><span>R$ 45,00</span></li>
-          <li><b>Barba (terça ou quarta)</b><span>R$ 35,00</span></li>
-          <li><b>Alisamento</b><span>R$ 35,00</span></li>
-        </ul>
-      </div>
+      <div class="plan-units reveal" id="planUnits" role="tablist" aria-label="Escolha a unidade"></div>
+      <div class="plan-clubs reveal" id="planClubs" role="tablist" aria-label="Escolha um clube"></div>
+      <div class="plans" id="plansGrid" aria-live="polite"></div>
     </div>
   </section>
 
@@ -787,7 +890,7 @@
     <div class="footer__unit">
       <h4>Unidade Alcântara</h4>
       <p>R. Dr. Alfredo Backer, 536 - Lj G bl4 - Alcântara, São Gonçalo - RJ, 24710-120</p>
-      <p>(21) 4119-4786</p>
+      <p>(21) 97259-9512</p>
       <a class="footer__link" href="#planos">Ver planos desta unidade →</a>
       <a class="footer__link" data-action="book-alcantara" href="#">Agendar horário →</a>
     </div>
@@ -837,6 +940,141 @@
       if (url.charAt(0) !== "#" && !el.hasAttribute("target")) { el.target = "_blank"; el.rel = "noopener"; }
     }
   });
+
+  // Planos confirmados por unidade.
+  var planCatalog = {
+    marica: {
+      label: "Maricá",
+      booking: CONFIG.bookingMarica,
+      clubs: [
+        {
+          id: "one",
+          label: "Clube One",
+          cards: [
+            { name: "Corte", price: "40,00", featured: true, details: ["1 corte a cada 30 dias"] },
+            { name: "Cabelo e barba", price: "75,00", details: ["1 corte e barba a cada 30 dias"] },
+            { name: "Barba", price: "40,00", details: ["1 barba a cada 30 dias"] }
+          ]
+        },
+        {
+          id: "prata",
+          label: "Clube Prata",
+          cards: [
+            { name: "Corte e barba", price: "149,90", featured: true, details: ["Corte e barba ilimitados", "10% de desconto em produtos", "Descontos em serviços avulsos"] },
+            { name: "Corte", price: "91,90", details: ["Corte ilimitado", "10% de desconto em produtos", "Descontos em serviços avulsos"] },
+            { name: "Barba", price: "91,90", details: ["Barba ilimitada", "10% de desconto em produtos", "Descontos em serviços avulsos"] }
+          ]
+        },
+        {
+          id: "ouro",
+          label: "Clube Ouro",
+          cards: [
+            { name: "Corte e barba", price: "199,90", featured: true, details: ["Corte e barba ilimitados", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
+            { name: "Corte", price: "119,90", details: ["Corte ilimitado", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
+            { name: "Barba", price: "119,90", details: ["Barba ilimitada", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] }
+          ]
+        }
+      ]
+    },
+    alcantara: {
+      label: "Alcântara",
+      booking: CONFIG.bookingAlcantara,
+      clubs: [
+        {
+          id: "one",
+          label: "Clube One",
+          cards: [
+            { name: "Corte", price: "35,00", featured: true, details: ["1 corte a cada 30 dias"] },
+            { name: "Cabelo e barba", price: "70,00", details: ["1 corte e barba a cada 30 dias"] },
+            { name: "Barba", price: "35,00", details: ["1 barba a cada 30 dias"] }
+          ]
+        },
+        {
+          id: "bronze",
+          label: "Clube Bronze",
+          cards: [
+            { name: "Corte e barba", price: "119,90", featured: true, details: ["Uso às terças e quartas", "Corte e barba ilimitados", "10% de desconto em produtos", "50% de desconto no mesmo serviço fora do dia da assinatura", "10% de desconto em serviços extras"] },
+            { name: "Corte", price: "69,90", details: ["Uso às terças e quartas", "Corte ilimitado", "10% de desconto em produtos", "50% de desconto no mesmo serviço fora do dia da assinatura", "10% de desconto em serviços extras"] },
+            { name: "Barba", price: "69,90", details: ["Uso às terças e quartas", "Barba ilimitada", "10% de desconto em produtos", "50% de desconto no mesmo serviço fora do dia da assinatura", "10% de desconto em serviços extras"] }
+          ]
+        },
+        {
+          id: "prata",
+          label: "Clube Prata",
+          cards: [
+            { name: "Corte e barba", price: "139,90", featured: true, details: ["Corte e barba ilimitados de segunda a sábado", "10% de desconto em produtos", "Desconto em serviços extras"] },
+            { name: "Corte", price: "79,90", details: ["Corte ilimitado de segunda a sábado", "10% de desconto em produtos", "Desconto em serviços extras"] },
+            { name: "Barba", price: "79,90", details: ["Barba ilimitada de segunda a sábado", "10% de desconto em produtos", "Desconto em serviços extras"] }
+          ]
+        },
+        {
+          id: "ouro",
+          label: "Clube Ouro",
+          cards: [
+            { name: "Corte e barba", price: "199,90", featured: true, details: ["Corte e barba ilimitados", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
+            { name: "Corte", price: "119,90", details: ["Corte ilimitado", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
+            { name: "Barba", price: "119,90", details: ["Barba ilimitada", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] }
+          ]
+        }
+      ]
+    }
+  };
+
+  var unitTabs = document.getElementById("planUnits");
+  var clubTabs = document.getElementById("planClubs");
+  var plansGrid = document.getElementById("plansGrid");
+  var plansTitle = document.getElementById("plansTitle");
+  var activeUnit = "marica";
+
+  function renderClub(clubId) {
+    var unit = planCatalog[activeUnit];
+    var club = unit.clubs.find(function (item) { return item.id === clubId; });
+    if (!club) return;
+
+    clubTabs.innerHTML = unit.clubs.map(function (item) {
+      var selected = item.id === clubId;
+      return '<button class="plan-club" type="button" role="tab" aria-selected="' + selected + '" aria-controls="plansGrid" data-club="' + item.id + '">' + item.label + '</button>';
+    }).join("");
+
+    plansGrid.innerHTML = club.cards.map(function (card) {
+      var featured = card.featured ? " plan--feature" : "";
+      var tag = card.featured ? '<span class="plan__tag">Mais assinado</span>' : '<span class="plan__tag">' + club.label + '</span>';
+      var actionClass = card.featured ? "btn btn--primary" : "btn btn--ghost";
+      var details = card.details.map(function (detail) { return '<li>' + detail + '</li>'; }).join("");
+      return '<article class="plan reveal is-in' + featured + '">' +
+        tag +
+        '<span class="plan__name">' + card.name + '</span>' +
+        '<span class="plan__price">R$ ' + card.price + '<small> /mês</small></span>' +
+        '<ul class="plan__details">' + details + '</ul>' +
+        '<a class="' + actionClass + '" href="' + unit.booking + '" target="_blank" rel="noopener">Assinar</a>' +
+        '</article>';
+    }).join("");
+  }
+
+  function renderUnit(unitId) {
+    var unit = planCatalog[unitId];
+    if (!unit) return;
+    activeUnit = unitId;
+    plansTitle.textContent = "Planos de " + unit.label + ".";
+    unitTabs.innerHTML = Object.keys(planCatalog).map(function (id) {
+      var item = planCatalog[id];
+      var selected = id === activeUnit;
+      return '<button class="plan-unit" type="button" role="tab" aria-selected="' + selected + '" aria-controls="plansGrid" data-unit="' + id + '">' + item.label + '</button>';
+    }).join("");
+    renderClub(unit.clubs[0].id);
+  }
+
+  clubTabs.addEventListener("click", function (event) {
+    var button = event.target.closest("[data-club]");
+    if (button) renderClub(button.dataset.club);
+  });
+
+  unitTabs.addEventListener("click", function (event) {
+    var button = event.target.closest("[data-unit]");
+    if (button) renderUnit(button.dataset.unit);
+  });
+
+  renderUnit("marica");
 
   // Mobile nav
   var nav = document.getElementById("nav");

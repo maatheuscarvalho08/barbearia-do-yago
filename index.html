@@ -364,6 +364,8 @@
     gap: 0.55rem;
     margin: -1.4rem 0 1rem;
   }
+  .plan-filter-label,
+  .plans-swipe { display: none; }
   .plan-unit {
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.75rem;
@@ -627,11 +629,77 @@
     .unit__actions .btn { width: 100%; }
 
     /* planos */
-    .plan { padding: 1.5rem 1.3rem; }
-    .plan-units { margin-top: -0.8rem; }
-    .plan-unit { flex: 1 1 calc(50% - 0.55rem); text-align: center; }
-    .plan-clubs { margin-top: 0; }
-    .plan-club { flex: 1 1 calc(50% - 0.55rem); text-align: center; padding-inline: 0.6rem; }
+    #planos .section__head { margin-bottom: 1.4rem; }
+    #planos .section__lead { font-size: 0.98rem; line-height: 1.55; }
+    .plan-filter-label {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel-dark);
+    }
+    .plan-units {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.35rem;
+      margin: 0 0 1.25rem;
+      padding: 0.3rem;
+      border: 1px solid rgba(13,26,43,0.12);
+      background: rgba(255,255,255,0.42);
+    }
+    .plan-unit { width: 100%; text-align: center; border-color: transparent; padding: 0.78rem 0.5rem; }
+    .plan-clubs {
+      flex-wrap: nowrap;
+      gap: 0.45rem;
+      margin: 0 calc(-1 * var(--pad-x)) 0.85rem 0;
+      padding: 0 1.4rem 0.25rem 0;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .plan-clubs::-webkit-scrollbar,
+    .plans::-webkit-scrollbar { display: none; }
+    .plan-club {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      white-space: nowrap;
+      border-radius: 999px;
+      padding: 0.72rem 0.95rem;
+    }
+    .plans-swipe {
+      display: block;
+      margin-bottom: 0.65rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel-dark);
+    }
+    .plans {
+      display: flex;
+      gap: 0.8rem;
+      margin-right: calc(-1 * var(--pad-x));
+      padding: 0 var(--pad-x) 0.7rem 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .plan {
+      flex: 0 0 calc(100% - 1.8rem);
+      scroll-snap-align: start;
+      padding: 1.35rem 1.2rem;
+      gap: 0.85rem;
+    }
+    .plan__name { font-size: 1.4rem; }
+    .plan__price { font-size: 2.15rem; }
+    .plan__details { min-height: 0; gap: 0.45rem; font-size: 0.9rem; }
+    .plan .btn { width: 100%; }
     .avulso__list { grid-template-columns: 1fr; }
 
     /* equipe */
@@ -802,8 +870,11 @@
         <h2 id="plansTitle">Planos de Maricá.</h2>
         <p class="section__lead" style="color:#4a5461;">Escolha a unidade, encontre o clube certo e agende direto pelo app.</p>
       </div>
+      <span class="plan-filter-label">1. Escolha a unidade</span>
       <div class="plan-units reveal" id="planUnits" role="tablist" aria-label="Escolha a unidade"></div>
+      <span class="plan-filter-label">2. Escolha o clube</span>
       <div class="plan-clubs reveal" id="planClubs" role="tablist" aria-label="Escolha um clube"></div>
+      <span class="plans-swipe">Deslize para comparar os planos →</span>
       <div class="plans" id="plansGrid" aria-live="polite"></div>
     </div>
   </section>
@@ -1067,6 +1138,7 @@
         '<a class="' + actionClass + '" href="' + unit.booking + '" target="_blank" rel="noopener">Assinar</a>' +
         '</article>';
     }).join("");
+    plansGrid.scrollLeft = 0;
   }
 
   function renderUnit(unitId) {
@@ -1080,6 +1152,7 @@
       return '<button class="plan-unit" type="button" role="tab" aria-selected="' + selected + '" aria-controls="plansGrid" data-unit="' + id + '">' + item.label + '</button>';
     }).join("");
     renderClub(unit.clubs[0].id);
+    clubTabs.scrollLeft = 0;
   }
 
   clubTabs.addEventListener("click", function (event) {

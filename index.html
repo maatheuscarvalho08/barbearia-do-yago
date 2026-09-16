@@ -409,6 +409,8 @@
   }
   .plan__details li { padding-left: 1.35rem; position: relative; color: #4a5461; }
   .plan__details li::before { content: "—"; position: absolute; left: 0; color: var(--blood-deep); }
+  .plan__details li.plan__detail--unavailable { color: #86919b; }
+  .plan__details li.plan__detail--unavailable::before { content: "×"; color: #86919b; }
   .plan--feature .plan__details li { color: #cfc7ba; }
   .plan--feature .plan__details li::before { color: var(--blood); }
   .plan {
@@ -580,6 +582,8 @@
     .footer__grid { grid-template-columns: 1fr; }
     .gallery { columns: 2; }
     .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .member img,
+    .member:hover img { filter: grayscale(0) contrast(1); transform: none; }
   }
 
   @media (max-width: 640px) {
@@ -713,7 +717,7 @@
         <span>Avaliação no Google</span>
       </div>
       <div class="strip__item"><b>2</b><span>Unidades no RJ</span></div>
-      <div class="strip__item"><b>15</b><span>Profissionais</span></div>
+      <div class="strip__item"><b>16</b><span>Profissionais</span></div>
       <div class="strip__item"><b>1x</b><span>Assinatura mensal</span></div>
     </div>
   </div>
@@ -819,9 +823,9 @@
         <figure class="member"><img src="assets/team/alcantara/brian.png" alt="Brian" /><figcaption>Brian</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/joao-machado.png" alt="João Machado" /><figcaption>João Machado</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/nata.jpg" alt="Natã" /><figcaption>Natã</figcaption></figure>
-        <figure class="member"><img src="assets/team/alcantara/patrick.png" alt="Patrick" /><figcaption>Patrick</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/richard.jpg" alt="Richard" /><figcaption>Richard</figcaption></figure>
-        <figure class="member"><div class="member__ph" aria-hidden="true">S</div><figcaption>Suede</figcaption></figure>
+        <figure class="member"><img src="assets/team/alcantara/suede.jpg" alt="Suede" /><figcaption>Suede</figcaption></figure>
+        <figure class="member"><img src="assets/team/alcantara/thiago.jpg" alt="Thiago" /><figcaption>Thiago</figcaption></figure>
       </div>
       <div class="team-grid" id="team-mar" role="tabpanel" aria-labelledby="tab-mar" hidden>
         <figure class="member"><img src="assets/team/marica/araujo.png" alt="Araujo" /><figcaption>Araujo</figcaption></figure>
@@ -834,6 +838,7 @@
         <figure class="member"><img src="assets/team/marica/rafael.jpg" alt="Rafael" /><figcaption>Rafael</figcaption></figure>
         <figure class="member"><img src="assets/team/marica/rodrigo.png" alt="Rodrigo" /><figcaption>Rodrigo</figcaption></figure>
         <figure class="member"><img src="assets/team/marica/welington.png" alt="Welington" /><figcaption>Welington</figcaption></figure>
+        <figure class="member"><div class="member__ph" aria-hidden="true">S</div><figcaption>Samuel</figcaption></figure>
       </div>
     </div>
   </section>
@@ -957,6 +962,15 @@
           ]
         },
         {
+          id: "bronze",
+          label: "Clube Bronze",
+          cards: [
+            { name: "Corte e barba", price: "129,90", featured: true, featuredLabel: "Mais vendido", details: ["Uso às terças e quartas", "Corte ilimitado", "Barba ilimitada", "10% de desconto em produtos", "50% de desconto no mesmo serviço da assinatura fora do dia", "10% de desconto em alguns serviços extras"] },
+            { name: "Barba", price: "79,90", details: ["Uso às terças e quartas", { text: "Corte ilimitado", available: false }, "Barba ilimitada", "10% de desconto em produtos", "50% de desconto no mesmo serviço da assinatura fora do dia", "10% de desconto em alguns serviços extras"] },
+            { name: "Corte", price: "79,90", details: ["Uso às terças e quartas", "Corte ilimitado", { text: "Barba ilimitada", available: false }, "10% de desconto em produtos", "50% de desconto no mesmo serviço da assinatura fora do dia", "10% de desconto em alguns serviços extras"] }
+          ]
+        },
+        {
           id: "prata",
           label: "Clube Prata",
           cards: [
@@ -1038,9 +1052,13 @@
 
     plansGrid.innerHTML = club.cards.map(function (card) {
       var featured = card.featured ? " plan--feature" : "";
-      var tag = card.featured ? '<span class="plan__tag">Mais assinado</span>' : '<span class="plan__tag">' + club.label + '</span>';
+      var tag = card.featured ? '<span class="plan__tag">' + (card.featuredLabel || 'Mais assinado') + '</span>' : '<span class="plan__tag">' + club.label + '</span>';
       var actionClass = card.featured ? "btn btn--primary" : "btn btn--ghost";
-      var details = card.details.map(function (detail) { return '<li>' + detail + '</li>'; }).join("");
+      var details = card.details.map(function (detail) {
+        if (typeof detail === "string") return '<li>' + detail + '</li>';
+        if (detail.available === false) return '<li class="plan__detail--unavailable" aria-label="' + detail.text + ' não incluído">' + detail.text + '</li>';
+        return '<li>' + detail.text + '</li>';
+      }).join("");
       return '<article class="plan reveal is-in' + featured + '">' +
         tag +
         '<span class="plan__name">' + card.name + '</span>' +

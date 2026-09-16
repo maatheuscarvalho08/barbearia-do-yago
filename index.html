@@ -706,8 +706,10 @@
     .tabs .tab { flex: 1; text-align: center; padding: 0.8rem 0.5rem; }
 
     /* cta final */
+    .final .wrap { padding-inline: var(--pad-x); }
+    .final h2 { font-size: clamp(2rem, 10vw, 2.6rem); text-wrap: balance; }
     .final__actions { flex-direction: column; align-items: stretch; }
-    .final__actions .btn { width: 100%; }
+    .final__actions .btn { width: 100%; min-width: 0; white-space: normal; }
 
     /* footer */
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
@@ -941,7 +943,7 @@
         <p>Seu próximo corte começa com um toque. Escolha a unidade e agende agora.</p>
         <div class="final__actions">
           <a class="btn btn--primary" data-action="book" href="#">Agendar horário</a>
-          <a class="btn btn--ghost" data-action="whatsapp" href="#">Chamar no WhatsApp</a>
+          <a class="btn btn--ghost" data-action="whatsapp-marica" href="#">Chamar Maricá no WhatsApp</a>
         </div>
       </div>
     </div>

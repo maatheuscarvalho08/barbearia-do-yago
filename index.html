@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>Barbearia do Yago — Sua barbearia por assinatura em São Gonçalo e Maricá</title>
 <meta name="description" content="Corte de precisão, atendimento de verdade e assinatura que cabe na rotina. Duas unidades no RJ: Alcântara (São Gonçalo) e Maricá. Agende em segundos." />
 <meta name="robots" content="index, follow" />
@@ -95,26 +96,21 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --ink: #0d1a2b;
-    --ink-2: #091320;
-    --ink-soft: #16273c;
+    --ink: #16232c;
+    --ink-2: #10181f;
+    --ink-soft: #22313d;
     --ink-line: rgba(241, 236, 226, 0.12);
-    --bone: #f1ece2;
-    --bone-2: #e5ddce;
-    --blood: #cc2130;
-    --blood-deep: #a81a27;
-    --steel: #8b98a7;
-    --steel-dark: #5c6a7a;
+    --bone: #ffffff;
+    --bone-2: #f1f4f6;
+    --brand: #216fac;
+    --brand-deep: #185887;
+    --steel: #a7b0b7;
+    --steel-dark: #52616d;
     --gold: #d8a24a;
-    --pole: repeating-linear-gradient(
-      118deg,
-      var(--blood) 0 12px,
-      #22375f 12px 24px,
-      var(--bone) 24px 36px
-    );
+    --pole: var(--brand);
 
     --fs-hero: clamp(2.5rem, 6vw, 4.6rem);
     --fs-h2: clamp(2rem, 4.4vw, 3.3rem);
@@ -138,15 +134,15 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3 { font-family: "Zilla Slab", Georgia, serif; line-height: 1.05; font-weight: 700; }
+  h1, h2, h3 { font-family: "Figtree", system-ui, sans-serif; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; }
 
   a { color: inherit; text-decoration: none; }
   img { display: block; max-width: 100%; }
 
-  ::selection { background: var(--blood); color: #fff; }
+  ::selection { background: var(--brand); color: #fff; }
 
   :focus-visible {
-    outline: 2px solid var(--blood);
+    outline: 2px solid var(--brand);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -158,10 +154,10 @@
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--blood);
+    color: var(--brand);
     display: inline-block;
   }
-  section.on-bone .eyebrow { color: var(--blood-deep); }
+  section.on-bone .eyebrow { color: var(--brand-deep); }
 
   /* ---------- buttons ---------- */
   .btn {
@@ -180,8 +176,8 @@
     white-space: nowrap;
     transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
-  .btn--primary { background: var(--blood); color: #fff; }
-  .btn--primary:hover { background: var(--blood-deep); transform: translateY(-2px); }
+  .btn--primary { background: var(--brand); color: #fff; }
+  .btn--primary:hover { background: var(--brand-deep); transform: translateY(-2px); }
   .btn--ghost { border-color: currentColor; color: var(--bone); }
   .btn--ghost:hover { background: var(--bone); color: var(--ink); transform: translateY(-2px); }
   section.on-bone .btn--ghost { color: var(--ink); }
@@ -205,7 +201,7 @@
     justify-content: space-between;
     gap: 1rem;
   }
-  .brand { display: flex; align-items: center; gap: 0.7rem; font-family: "Zilla Slab", serif; font-weight: 600; font-size: 1.05rem; }
+  .brand { display: flex; align-items: center; gap: 0.7rem; font-family: "Figtree", sans-serif; font-weight: 600; font-size: 1.05rem; }
   .brand__badge {
     width: 46px; height: 46px;
     background: center / contain no-repeat url("assets/logo.png");
@@ -257,14 +253,6 @@
                 #0d1a2b 62% 48% / cover no-repeat url("assets/hero.png");
     overflow: hidden;
   }
-  .hero__rail {
-    position: absolute;
-    top: 0; bottom: 0; left: 0;
-    width: 9px;
-    background: var(--pole);
-    background-size: auto 220px;
-    z-index: 3;
-  }
   .hero__content { position: relative; z-index: 3; max-width: 900px; margin: 0 auto; text-align: center; }
   .hero__logo {
     display: block;
@@ -282,7 +270,7 @@
     text-transform: uppercase;
     letter-spacing: -0.01em;
   }
-  .hero h1 em { color: var(--blood); font-style: normal; }
+  .hero h1 em { color: var(--brand); font-style: normal; }
   .hero__sub { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: #d7cfc2; max-width: 46ch; margin: 0 auto; }
   .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2rem; justify-content: center; }
 
@@ -297,7 +285,7 @@
     gap: 1rem 2rem;
   }
   .strip__item { display: flex; flex-direction: column; gap: 0.1rem; }
-  .strip__item b { font-family: "Zilla Slab", serif; font-size: 1.5rem; line-height: 1; display: flex; align-items: center; gap: 0.4rem; }
+  .strip__item b { font-family: "Figtree", sans-serif; font-size: 1.5rem; line-height: 1; display: flex; align-items: center; gap: 0.4rem; }
   .strip__item span { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel-dark); }
   .strip__stars { color: var(--gold); letter-spacing: 0.05em; font-size: 1rem; }
 
@@ -315,7 +303,7 @@
   .sobre__photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; filter: grayscale(0.15) contrast(1.03); }
   .sobre__photo figcaption {
     position: absolute; left: -1px; bottom: 1.4rem;
-    background: var(--blood); color: #fff;
+    background: var(--brand); color: #fff;
     font-family: "IBM Plex Mono", monospace; font-size: 0.7rem;
     letter-spacing: 0.14em; text-transform: uppercase;
     padding: 0.5rem 1rem;
@@ -331,10 +319,10 @@
     content: counter(s, decimal-leading-zero);
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.9rem;
-    color: var(--blood-deep);
+    color: var(--brand-deep);
     font-weight: 500;
   }
-  .steps b { font-family: "Zilla Slab", serif; font-size: 1.15rem; }
+  .steps b { font-family: "Figtree", sans-serif; font-size: 1.15rem; }
   .steps span { display: block; color: #4a5461; font-size: 0.95rem; }
   .agende__phone { position: relative; display: flex; justify-content: center; }
   .agende__phone img { width: min(100%, 380px); border-radius: 14px; box-shadow: 0 40px 90px -30px rgba(9,19,32,0.55); }
@@ -346,7 +334,7 @@
   .unit__body { padding: clamp(1.4rem, 3vw, 2rem); display: flex; flex-direction: column; gap: 0.9rem; flex: 1; }
   .unit__body h3 { font-size: 1.5rem; text-transform: uppercase; }
   .unit__row { display: flex; gap: 0.7rem; color: var(--steel); font-size: 0.95rem; }
-  .unit__row svg { width: 17px; height: 17px; flex: none; margin-top: 0.25rem; color: var(--blood); }
+  .unit__row svg { width: 17px; height: 17px; flex: none; margin-top: 0.25rem; color: var(--brand); }
   .unit__actions { margin-top: auto; padding-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.7rem; }
   .unit__actions .btn { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
 
@@ -380,8 +368,8 @@
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
   .plan-unit[aria-selected="true"] {
-    background: var(--blood);
-    border-color: var(--blood);
+    background: var(--brand);
+    border-color: var(--brand);
     color: #fff;
   }
   .plan-club {
@@ -410,11 +398,11 @@
     font-size: 0.95rem;
   }
   .plan__details li { padding-left: 1.35rem; position: relative; color: #4a5461; }
-  .plan__details li::before { content: "—"; position: absolute; left: 0; color: var(--blood-deep); }
+  .plan__details li::before { content: "—"; position: absolute; left: 0; color: var(--brand-deep); }
   .plan__details li.plan__detail--unavailable { color: #86919b; }
   .plan__details li.plan__detail--unavailable::before { content: "×"; color: #86919b; }
   .plan--feature .plan__details li { color: #cfc7ba; }
-  .plan--feature .plan__details li::before { color: var(--blood); }
+  .plan--feature .plan__details li::before { color: var(--brand); }
   .plan {
     border: 1px solid rgba(13,26,43,0.16);
     border-radius: 2px;
@@ -426,16 +414,16 @@
   }
   .plan--feature { background: var(--ink); color: var(--bone); border-color: var(--ink); position: relative; }
   .plan--feature .plan__list li { color: #cfc7ba; }
-  .plan--feature .plan__list li::before { color: var(--blood); }
-  .plan__tag { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blood-deep); }
-  .plan--feature .plan__tag { color: #fff; background: var(--blood); padding: 0.3rem 0.6rem; align-self: flex-start; }
-  .plan__name { font-family: "Zilla Slab", serif; font-size: 1.6rem; text-transform: uppercase; }
-  .plan__price { font-family: "Zilla Slab", serif; font-size: 2.4rem; line-height: 1; }
+  .plan--feature .plan__list li::before { color: var(--brand); }
+  .plan__tag { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand-deep); }
+  .plan--feature .plan__tag { color: #fff; background: var(--brand); padding: 0.3rem 0.6rem; align-self: flex-start; }
+  .plan__name { font-family: "Figtree", sans-serif; font-size: 1.6rem; text-transform: uppercase; }
+  .plan__price { font-family: "Figtree", sans-serif; font-size: 2.4rem; line-height: 1; }
   .plan__price small { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--steel-dark); letter-spacing: 0.04em; }
   .plan--feature .plan__price small { color: var(--steel); }
   .plan__list { list-style: none; display: grid; gap: 0.55rem; font-size: 0.95rem; }
   .plan__list li { padding-left: 1.4rem; position: relative; color: #4a5461; }
-  .plan__list li::before { content: "—"; position: absolute; left: 0; color: var(--blood-deep); }
+  .plan__list li::before { content: "—"; position: absolute; left: 0; color: var(--brand-deep); }
   .plan .btn { margin-top: auto; }
 
   .avulso { margin-top: 2.6rem; border-top: 2px solid var(--ink); padding-top: 1.6rem; }
@@ -459,7 +447,7 @@
     border-radius: 2px;
     transition: all 0.15s ease;
   }
-  .tab[aria-selected="true"] { background: var(--blood); border-color: var(--blood); color: #fff; }
+  .tab[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
   .team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
   .team-grid[hidden] { display: none; }
   .member { position: relative; overflow: hidden; border-radius: 2px; background: var(--ink-2); }
@@ -473,7 +461,7 @@
     justify-content: center;
     background: var(--ink-soft);
     color: var(--steel-dark);
-    font-family: "Zilla Slab", serif;
+    font-family: "Figtree", sans-serif;
     font-weight: 700;
     font-size: 2.6rem;
   }
@@ -505,10 +493,10 @@
   .footer__nav { list-style: none; display: grid; gap: 0.6rem; margin-top: 1.4rem; }
   .footer__nav a { color: var(--steel); font-size: 0.92rem; }
   .footer__nav a:hover { color: var(--bone); }
-  .footer__unit h4 { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blood); margin-bottom: 0.9rem; }
+  .footer__unit h4 { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand); margin-bottom: 0.9rem; }
   .footer__unit p { color: var(--steel); font-size: 0.92rem; margin-bottom: 0.5rem; }
   .footer__unit a.footer__link { display: block; color: var(--bone); font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; }
-  .footer__unit a.footer__link:hover { color: var(--blood); }
+  .footer__unit a.footer__link:hover { color: var(--brand); }
   .footer__bottom {
     max-width: var(--maxw); margin: 3rem auto 0; padding: 1.6rem var(--pad-x) 0;
     border-top: 1px solid var(--ink-line);
@@ -556,7 +544,7 @@
       z-index: 40;
     }
     .nav.is-open .nav__links > a {
-      font-family: "Zilla Slab", serif;
+      font-family: "Figtree", sans-serif;
       font-weight: 600;
       font-size: 1.7rem;
       text-transform: uppercase;
@@ -720,6 +708,105 @@
     .team-grid { grid-template-columns: repeat(2, 1fr); }
     .brand__text { display: none; }
   }
+
+  /* ---------- premium blue ---------- */
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(16,24,31,0.95) 0%, rgba(16,24,31,0.76) 48%, rgba(16,24,31,0.18) 100%),
+      linear-gradient(180deg, rgba(16,24,31,0.12) 0%, rgba(16,24,31,0.84) 100%),
+      #10181f 62% 48% / cover no-repeat url("assets/hero.png");
+  }
+  .hero__content {
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .hero__logo { margin-left: 0; }
+  .hero__sub { margin-left: 0; color: #ffffff; }
+  .hero__actions { justify-content: flex-start; }
+  .hero__logo {
+    filter:
+      drop-shadow(0 0 1px #ffffff)
+      drop-shadow(0 0 3px rgba(255,255,255,0.75))
+      drop-shadow(0 0 8px rgba(255,255,255,0.3));
+  }
+  .btn,
+  .unit,
+  .plan,
+  .member { border-radius: 8px; }
+
+  .nav {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(16px) saturate(1.15);
+    -webkit-backdrop-filter: blur(16px) saturate(1.15);
+    border-bottom-color: rgba(33,111,172,0.16);
+  }
+  .brand { color: var(--ink); }
+  .brand__badge {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(44%) saturate(1423%) hue-rotate(166deg) brightness(91%) contrast(87%);
+  }
+  .brand__text small,
+  .nav__links a { color: #52616d; }
+  .nav__links a:hover,
+  .nav__icon:hover { color: var(--brand); }
+  .nav__icon,
+  .nav__toggle {
+    border-color: rgba(33,111,172,0.24);
+    color: var(--brand);
+  }
+
+  .strip { background: #ffffff; }
+  .section.on-bone { background: #ffffff; }
+  .plan-filter-label,
+  .section.on-bone .section__lead { color: #52616d; }
+  .plan--feature {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #ffffff;
+  }
+  .plan--feature .plan__tag,
+  .plan--feature .btn--primary {
+    background: #ffffff;
+    color: var(--brand);
+  }
+  .plan--feature .plan__price small,
+  .plan--feature .plan__details li { color: rgba(255,255,255,0.9); }
+  .plan--feature .plan__details li::before { color: #ffffff; }
+
+  .final { background: var(--brand); }
+  .final p { color: rgba(255,255,255,0.88); }
+  .final .btn--primary {
+    background: #ffffff;
+    color: var(--brand);
+  }
+  .final .btn--primary:hover {
+    background: #f1f4f6;
+    color: var(--brand-deep);
+  }
+  .final .btn--ghost {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  .final .btn--ghost:hover {
+    background: #ffffff;
+    color: var(--brand);
+  }
+
+  @media (max-width: 720px) {
+    .hero__content { text-align: center; }
+    .hero__logo,
+    .hero__sub { margin-inline: auto; }
+    .hero__actions { justify-content: center; }
+  }
+
+  @media (max-width: 960px) {
+    .nav.is-open,
+    .nav.is-open .nav__links { background: #ffffff; }
+    .nav.is-open .nav__links > a {
+      color: var(--ink);
+      border-bottom-color: rgba(33,111,172,0.16);
+    }
+  }
 </style>
 </head>
 <body>
@@ -768,7 +855,6 @@
 
 <main>
   <section class="hero" id="inicio">
-    <span class="hero__rail" aria-hidden="true"></span>
     <div class="wrap hero__content">
       <img class="hero__logo" src="assets/logo.png" alt="Barbearia do Yago" />
       <h1>Sua barbearia<br /><em>por assinatura.</em></h1>
@@ -894,24 +980,24 @@
       </div>
       <div class="team-grid" id="team-alc" role="tabpanel" aria-labelledby="tab-alc">
         <figure class="member"><img src="assets/team/alcantara/brian.jpg?v=20260916" alt="Brian" /><figcaption>Brian</figcaption></figure>
-        <figure class="member"><img src="assets/team/alcantara/joao-machado.png" alt="João Machado" /><figcaption>João Machado</figcaption></figure>
+        <figure class="member"><img src="assets/team/alcantara/joao-machado.jpg?v=20260918" alt="João Machado" /><figcaption>João Machado</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/nata.jpg?v=20260916" alt="Natã" /><figcaption>Natã</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/richard.jpg?v=20260916" alt="Richard" /><figcaption>Richard</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/suede.jpg?v=20260916" alt="Suede" /><figcaption>Suede</figcaption></figure>
         <figure class="member"><img src="assets/team/alcantara/thiago.jpg?v=20260918" alt="Thiago" /><figcaption>Thiago</figcaption></figure>
       </div>
       <div class="team-grid" id="team-mar" role="tabpanel" aria-labelledby="tab-mar" hidden>
-        <figure class="member"><img src="assets/team/marica/araujo.png" alt="Araujo" /><figcaption>Araujo</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/diego.png" alt="Diego" /><figcaption>Diego</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/felipe.png" alt="Felipe" /><figcaption>Felipe</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/jefferson.jpg" alt="Jefferson" /><figcaption>Jefferson</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/kamile.png" alt="Kamile" /><figcaption>Kamile</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/marcus.png" alt="Marcus" /><figcaption>Marcus</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/miracema.jpg" alt="Miracema" /><figcaption>Miracema</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/araujo.jpg?v=20260918" alt="Araujo" /><figcaption>Araujo</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/diego.jpg?v=20260918" alt="Diego" /><figcaption>Diego</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/felipe.jpg?v=20260918" alt="Felipe" /><figcaption>Felipe</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/jefferson.jpg?v=20260918" alt="Jefferson" /><figcaption>Jefferson</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/kamile.jpg?v=20260918" alt="Kamile" /><figcaption>Kamile</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/marcus.jpg?v=20260918" alt="Marcus" /><figcaption>Marcus</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/miracema.jpg?v=20260918" alt="Miracema" /><figcaption>Miracema</figcaption></figure>
         <figure class="member"><img src="assets/team/marica/rafael.jpg" alt="Rafael" /><figcaption>Rafael</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/rodrigo.png" alt="Rodrigo" /><figcaption>Rodrigo</figcaption></figure>
-        <figure class="member"><img src="assets/team/marica/welington.png" alt="Welington" /><figcaption>Welington</figcaption></figure>
-        <figure class="member"><div class="member__ph" aria-hidden="true">S</div><figcaption>Samuel</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/rodrigo.jpg?v=20260918" alt="Rodrigo" /><figcaption>Rodrigo</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/welington.jpg?v=20260918" alt="Welington" /><figcaption>Welington</figcaption></figure>
+        <figure class="member"><img src="assets/team/marica/samuel.jpg?v=20260918" alt="Samuel" /><figcaption>Samuel</figcaption></figure>
       </div>
     </div>
   </section>
@@ -1027,6 +1113,7 @@
         {
           id: "one",
           label: "Clube One",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago2/clubeone",
           cards: [
             { name: "Corte", price: "40,00", featured: true, details: ["1 corte a cada 30 dias"] },
             { name: "Cabelo e barba", price: "75,00", details: ["1 corte e barba a cada 30 dias"] },
@@ -1036,6 +1123,7 @@
         {
           id: "bronze",
           label: "Clube Bronze",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago2/bronze",
           cards: [
             { name: "Corte e barba", price: "129,90", featured: true, featuredLabel: "Mais vendido", details: ["Uso às terças e quartas", "Corte ilimitado", "Barba ilimitada", "10% de desconto em produtos", "50% de desconto no mesmo serviço da assinatura fora do dia", "10% de desconto em alguns serviços extras"] },
             { name: "Barba", price: "79,90", details: ["Uso às terças e quartas", { text: "Corte ilimitado", available: false }, "Barba ilimitada", "10% de desconto em produtos", "50% de desconto no mesmo serviço da assinatura fora do dia", "10% de desconto em alguns serviços extras"] },
@@ -1045,6 +1133,7 @@
         {
           id: "prata",
           label: "Clube Prata",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago2/barbeariadoyagoprata",
           cards: [
             { name: "Corte e barba", price: "149,90", featured: true, details: ["Corte e barba ilimitados", "10% de desconto em produtos", "Descontos em serviços avulsos"] },
             { name: "Corte", price: "91,90", details: ["Corte ilimitado", "10% de desconto em produtos", "Descontos em serviços avulsos"] },
@@ -1054,6 +1143,7 @@
         {
           id: "ouro",
           label: "Clube Ouro",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago2/clubeouro",
           cards: [
             { name: "Corte e barba", price: "199,90", featured: true, details: ["Corte e barba ilimitados", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
             { name: "Corte", price: "119,90", details: ["Corte ilimitado", "Use em todas as unidades", "10% de desconto em produtos", "Descontos em serviços avulsos", "Cadeira cativa a combinar"] },
@@ -1069,6 +1159,7 @@
         {
           id: "one",
           label: "Clube One",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago/clubeone",
           cards: [
             { name: "Corte", price: "35,00", featured: true, details: ["1 corte a cada 30 dias"] },
             { name: "Cabelo e barba", price: "70,00", details: ["1 corte e barba a cada 30 dias"] },
@@ -1078,6 +1169,7 @@
         {
           id: "bronze",
           label: "Clube Bronze",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago/clubebronze",
           cards: [
             { name: "Corte e barba", price: "119,90", featured: true, details: ["Uso às terças e quartas", "Corte e barba ilimitados", "10% de desconto em produtos", "50% de desconto no mesmo serviço fora do dia da assinatura", "10% de desconto em serviços extras"] },
             { name: "Corte", price: "69,90", details: ["Uso às terças e quartas", "Corte ilimitado", "10% de desconto em produtos", "50% de desconto no mesmo serviço fora do dia da assinatura", "10% de desconto em serviços extras"] },
@@ -1087,6 +1179,7 @@
         {
           id: "prata",
           label: "Clube Prata",
+          checkout: "https://celcash.celcoin.com.br/barbeariadoyago/clubeprata",
           cards: [
             { name: "Corte e barba", price: "139,90", featured: true, details: ["Corte e barba ilimitados de segunda a sábado", "10% de desconto em produtos", "Desconto em serviços extras"] },
             { name: "Corte", price: "79,90", details: ["Corte ilimitado de segunda a sábado", "10% de desconto em produtos", "Desconto em serviços extras"] },
@@ -1136,7 +1229,7 @@
         '<span class="plan__name">' + card.name + '</span>' +
         '<span class="plan__price">R$ ' + card.price + '<small> /mês</small></span>' +
         '<ul class="plan__details">' + details + '</ul>' +
-        '<a class="' + actionClass + '" href="' + unit.booking + '" target="_blank" rel="noopener">Assinar</a>' +
+        '<a class="' + actionClass + '" href="' + (club.checkout || unit.booking) + '" target="_blank" rel="noopener">Assinar clube</a>' +
         '</article>';
     }).join("");
     plansGrid.scrollLeft = 0;
